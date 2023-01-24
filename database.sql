@@ -18,7 +18,7 @@ INSERT INTO products (id, name, description,price,sale_price,quantity,image,cate
                          (2, "Masoor","Masoor Dal",70.00,NULL,0,"f2.png","dal","dal"),
                          (3, "Basmati","Basmati Rice",200.00,NULL,0,"f3.png","rice","rice"),
                          (4, "Arhar Dal","Fresh arhar dal at doorstep",108.00,NULL,0,"f4.png","dal","dal"),
-                         (5, "Soya Beans","Crispy and fresh beans of soya",120.00,NULL,0,"f5.png","soyabean","soyabean"),
+                         (5, "Soya Beans","Crispy and fresh beans of Soya",120.00,NULL,0,"f5.png","soyabean","soyabean"),
                          (6, "Indrayani","Indrayani Rice",99.99,NULL,0,"f6.png","rice","rice"),
                          (7, "Moong","Moong Dal",100.00,NULL,0,"f7.png","dal","dal"),
                          (8, "Corn","Corn Seeds",160.00,NULL,0,"f8.png","corn","corn"),
