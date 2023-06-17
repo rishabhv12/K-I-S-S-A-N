@@ -149,17 +149,6 @@ select {
   }
 }
 
-
-
-/* ======================================================================== */ 
-
- /*                      RELATED TO THE TTUTORIAL                        */
-
-/* ======================================================================== */
-
-
-
-
 body {
 	height: 100vh;
 	display: flex;
@@ -217,11 +206,6 @@ form {
 	text-align: center;
 	letter-spacing: 1px;
 }
-
-
-
-
-/* ----------------- The start of SideShift Design ----------------- */
 
 .sign-in-container {
 	width: 50%;
@@ -363,7 +347,7 @@ footer a:hover {
 
 
 
-/* -----------------The start of Social media Design* ----------------- */
+/* -----------------The start of Social mSedia Design* ----------------- */
 
 
 .social__media__container {
