@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+        
     },
     "author": "Rishabh Verma",
     "license": "ISC",
@@ -14,6 +15,7 @@
         "express": "^4.18.2",
         "express-session": "^1.17.3",
         "mysql": "^2.18.1",
+        "nodemon": "^2.0.22",
         "request": "^2.88.2"
     }
 }

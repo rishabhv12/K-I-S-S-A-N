@@ -130,6 +130,16 @@
                             <a href="help" class="order_online">
                               Help desk
                             </a>
+                            <% if (loggedIn) { %>
+                                <form action="/logout" method="POST">
+                                  <button class="order_online" type="submit">Logout</button>
+                                </form>
+                              <% } else { %>
+                                <a href="login" class="order_online">
+                                  Login
+                                </a>
+                            <% } %>
+                              
                         </div>
                     </div>
                 </nav>

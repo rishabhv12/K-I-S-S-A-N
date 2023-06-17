@@ -4,6 +4,8 @@ var bodyParser = require("body-parser")
 var mysql = require("mysql")
 var session = require("express-session")
 
+
+
 var app = express();
 
 mysql.createConnection({
@@ -15,7 +17,13 @@ mysql.createConnection({
 
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
-app.use(session({ secret: "secret" }))
+
+app.use(session({
+    secret: 'your-secret-key', // Replace with your own secret key
+    resave: false,
+    saveUninitialized: true
+  }));
+  
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
@@ -32,6 +40,7 @@ function isProductInCart(cart, id) {
     }
     return false;
 }
+
 
 function calculateTotal(cart, req) {
     total = 0;
@@ -51,21 +60,137 @@ function calculateTotal(cart, req) {
 }
 
 app.get('/', function(req, res) {
+    var loggedIn = req.query.loggedIn === 'true';
+  
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "node_project"
+    });
+  
+    con.connect((err) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("An error occurred. Please try again later.");
+      } else {
+        con.query("SELECT * FROM products", function(err, result) {
+          if (err) {
+            console.log(err);
+            res.status(500).send("An error occurred. Please try again later.");
+          } else {
+            res.render('pages/index', { result: result, loggedIn: loggedIn });
+          }
+        });
+      }
+    });
+  });
+  
 
+app.get('/login', function(req, res) {
+
+    
+    res.render('pages/login')
+
+})
+
+
+
+app.post('/logout', function(req, res) {
+    if (req.session.user) {
+      req.session.destroy(function(err) {
+        if (err) {
+          console.log(err);
+          res.status(500).send("An error occurred. Please try again later.");
+        } else {
+          // Update the loggedIn variable
+          loggedIn = false;
+          res.redirect('/');
+        }
+      });
+    } else {
+      res.redirect('/');
+    }
+});
+  
+  
+  app.post('/signin', function(req, res) {
+    var email = req.body.email;
+    var password = req.body.password;
+  
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "node_project"
+    });
+  
+    con.connect((err) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("An error occurred. Please try again later.");
+      } else {
+        con.query("SELECT * FROM signup WHERE email =" + mysql.escape(email), function(err, result) {
+          if (err) {
+            console.log(err);
+            res.status(500).send("An error occurred. Please try again later.");
+          } else {
+            if (result.length > 0) {
+              // Email exists in the signup table
+              var storedPassword = result[0].password;
+  
+              // Compare the stored password with the provided password
+              if (storedPassword === password) {
+                // Password is correct
+                req.session.user = {
+                  email: email,
+                  name: result[0].name
+                };
+                loggedIn = req.session.user ? true : false;
+                res.redirect('/?loggedIn=' + loggedIn);
+              } else {
+                // Password is incorrect
+                res.redirect('/login');
+              }
+            } else {
+              // Email does not exist in the signup table
+              res.redirect('/login');
+            }
+          }
+        });
+      }
+    });
+  });
+  
+
+app.post("/signup",function(req,res){
+    var name = req.body.name;
+    var email = req.body.email;
+    var password = req.body.password;
+    console.log(name,email,password);
     var con = mysql.createConnection({
         host: "localhost",
         user: "root",
         password: "",
         database: "node_project"
     })
-    con.query("SELECT * FROM products", (err, result) => {
-        res.render('pages/index', { result: result })
+    con.connect((err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            var query = "INSERT INTO signup (name,email,password) VALUES ?";
+            var values = [
+                [name, email, password]
+            ];
+
+            con.query(query, [values], (err, result) => {})
+            console.log(values)
+            res.redirect('/login')
+        }
     })
 
+
 })
-
-
-
 app.post("/add_to_cart", function(req, res) {
     var id = req.body.id;
     var name = req.body.name;

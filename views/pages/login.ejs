@@ -1,0 +1,147 @@
+<html lang="en">
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="shortcut icon" href="images/favicon.png" type="">
+    
+        <title> K-I-S-A-A-N </title>
+    
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    
+        <!--owl slider stylesheet -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.css" />
+        <!-- nice select  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+        <!-- font awesome style -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/00a182305b.js" crossorigin="anonymous"></script>
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="css/responsive.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+		<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    
+    </head>
+    <body>
+       
+		<div class="container" id="container">
+				<div class="form-container  sign-up-container">
+				<form id="signup" method="post" action="/signup">
+					<div class="header">Sign Up</div>
+					<div class="social__media__container">
+						<a href="https://codepen.io/Rittenhouse" target="_blank" class="social codepen">
+							<i class="fa-brands fa-codepen"></i>
+						</a>
+						<a href="#" class="social google">
+							<i class="fa-brands fa-google"></i>
+						</a>
+						<a href="https://www.instagram.com/zaur.suleymnv/"  target="_blank" class="social instagram">
+							<i class="fa-brands fa-instagram"></i>
+						</a>
+					</div>
+					  <span class="under__social">
+						 <a href="#" class="link signin-link">or use your email for registration
+                        </a>
+					</span>
+					
+					<div class="button-input-group">
+						<div class="group input-group">
+						<input type="text" placeholder="name" name="name" required>
+					</div>
+					<div class="group input-group">
+						<input type="email" placeholder="email" name="email" required>
+					</div>
+					<div class="group input-group">
+						<input type="password" placeholder="password" name="password" required pattern=".{8,}">
+					</div>
+					<div class="alert-text signup__alert">
+						<span class="help__text">At least 8 character</span>
+					</div>
+					<div class="group button-group">
+						<!-- <button class="signup-btn" onclick="return false;">Sign Up</button> -->
+                        <input type="submit" class="signup-btn" id="signup" name="signup_btn" value="Sign up">
+					</div>
+					</div>
+					
+				</form>
+			</div>
+			
+			
+			<div class="form-container  sign-in-container">
+				<form id="signin" method="post" action="/signin">
+					<div class="header">Sign In</div>
+					<div class="social__media__container">
+						<a href="https://codepen.io/Rittenhouse" target="_blank"  class="social codepen">
+							<i class="fa-brands fa-codepen"></i>
+						</a>
+						<a href="#" class="social google">
+							<i class="fa-brands fa-google"></i>
+						</a>
+						<a href="https://www.instagram.com/zaur.suleymnv/"  target="_blank"  class="social instagram">
+							<i class="fa-brands fa-instagram"></i>
+						</a>
+					</div>
+					 <span class="under__social">
+						 <a href="#" class="link signup-link">or use your account</a>
+					</span>
+					
+				<div class="button-input-group">
+					<div class="group input-group">
+						<input type="email" placeholder="Email" name="email" required>
+					</div>
+					<div class="group input-group">
+						<input type="password" placeholder="Password" name="password" required pattern=".{8,}">
+					</div>
+					<div class="alert-text signup__alert">
+						<span class="help__text">At least 8 character</span>
+					</div>
+					<div class="group button-group">
+						<!-- <button class="signin-btn" onclick="return false;">Sign in</button> -->
+                        <input type="submit" class="signin-btn" id="signin" name="signin_btn" value="Sign in">
+					</div>
+				</div>
+				</form>
+			</div>
+			
+			
+			
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>Welcome Back!</h1>
+						<p>Please login your personal info</p>
+						
+					<div class="group button-group">
+						<button class="ghost" id="signIn">Sign in</button>
+					</div>
+						
+					</div>
+					
+					<div class="overlay-panel overlay-right">
+						<h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start your journey with us</p>
+						
+					<div class="group button-group">
+						<button class="ghost" id="signUp">Sign up</button>
+					</div>
+						
+					</div>
+				</div>
+			</div>
+		
+			
+		</div>
+		
+		<script src="js/login.js"></script>
+    </body>
+</html>
